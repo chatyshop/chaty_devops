@@ -64,9 +64,9 @@ No external runtime dependency.
 
 ## 📦 Latest Version
 
-Current Release: **v1.2.2**  
+Current Release: **v1.2.3**  
 Status: Early Access  
-Release Date: February 2026
+Release Date: March 2026
 
 See full release notes in the Releases section.
 
