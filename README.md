@@ -19,9 +19,20 @@ Download the latest available package from [Releases](https://github.com/chatysh
 
 ## Latest release
 
-**Current release:** v1.2.8  
+**Current release:** v1.2.9  
 **Status:** Early Access  
-**Release date:** 19 July 2026
+**Release date:** 26 July 2026
+
+### v1.2.9 highlights
+
+- Terminal workspaces, tabs, and selected servers persist while moving between app modules.
+- SFTP now reports transfer progress, speed, completion, cancellation, retry options, and possible partial files.
+- Deploy includes clearer pre-flight checks, build-command guidance, and actionable failure output.
+- Monitoring includes uptime and consistent server health data; poll intervals can be configured per environment.
+- Logs can flag high-rate suspicious scanning and show an in-app alert with the affected server, IP, and sample paths.
+- Nginx configuration testing and application discovery are improved, with reverse-proxy health visibility.
+- AWS VPS management supports instance resizing, EBS volume resizing, environment assignment, and clearer monthly estimates.
+- API Test includes saved request history.
 
 See the release notes for package-specific changes and installation instructions.
 
@@ -35,18 +46,23 @@ See the release notes for package-specific changes and installation instructions
 - Open multi-workspace interactive SSH terminals
 - Run remote commands securely
 - Browse and transfer files with integrated SFTP
+- Keep a terminal workspace available while reviewing Monitoring, Logs, or other modules
 
 ### Provision AWS VPS instances
 
 - Connect your AWS IAM access key locally
 - Create and manage beginner-friendly Amazon EC2 VPS instances
 - Create or select key pairs and server settings
+- Assign managed instances to Development, Staging, or Production so each environment stays focused
+- Resize supported instances and EBS volumes from the app; where supported, Chaty can also expand the remote Linux filesystem
+- Show a disk-aware monthly estimate before and after infrastructure changes
 - Move from AWS provisioning to SSH, deploy, monitoring, and Nginx in one workflow
 
 ### Deploy applications with confidence
 
 - Guided static-app and server-app deployment flows
 - Preview commands before execution with dry-run validation
+- Validate PM2 and target-directory requirements before deployment where applicable
 - Track live deployment output and deployment history
 - Keep deployment actions connected to the selected server
 
@@ -54,6 +70,7 @@ See the release notes for package-specific changes and installation instructions
 
 - View CPU, memory, disk, uptime, and server status
 - Refresh individual servers or the full environment
+- Configure polling intervals independently for Development, Staging, and Production
 - Identify warning and critical resource usage early
 - Inspect active TCP and UDP listening ports, including the owning process
 
@@ -68,7 +85,8 @@ See the release notes for package-specific changes and installation instructions
 ### Troubleshoot and test
 
 - Stream and search server logs with filtering, history, and export
-- Send API requests from the built-in API testing workspace
+- Detect unusually frequent suspicious web requests and surface an in-app security alert
+- Send API requests from the built-in API testing workspace and save frequently used requests
 - Keep terminal, logs, deployment, and server context in one desktop app
 
 ---
@@ -97,6 +115,7 @@ Chaty DevOps is designed around local control:
 - Ed25519-signed, offline license verification
 - Controlled desktop IPC boundaries and per-workspace session isolation
 - No Chaty-hosted server is required for SSH, SFTP, deployment, monitoring, or Nginx management
+- Environment switches warn before active terminal sessions, deployments, or file transfers are cancelled
 
 Chaty DevOps is **offline-first**, not disconnected from your own infrastructure: internet or network access is only needed when you deliberately connect to AWS, a remote server, an API, or a certificate authority for SSL.
 
