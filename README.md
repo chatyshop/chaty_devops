@@ -19,20 +19,20 @@ Download the latest available package from [Releases](https://github.com/chatysh
 
 ## Latest release
 
-**Current release:** v1.3.0  
+**Current release:** v1.3.20  
 **Status:** Early Access  
-**Release date:** 19 August 2026
+**Release date:** 3 October 2026
 
-### v1.3.0 highlights
+### v1.3.20 highlights
 
-- Deploy now saves service settings on each server for one-click dry runs and redeployments.
-- Upload, inspect, edit, add, remove, and securely apply environment variables without including `.env` files in normal project uploads.
-- Environment changes restart PM2 applications with updated variables; static and custom deployments rerun their saved deployment command.
-- Deployment activity includes clearer progress, compact live logs, and cancellation controls.
-- Nginx can discover existing deployed services and prepare them for deployment configuration on a new PC.
-- SSL setup supports optional `www` and additional comma-separated domains, with automatic certificate renewal setup.
-- SSL and Health now inspect Nginx's active configuration, improving support for sites created by earlier app versions or custom config filenames.
-- Linux AppImage and Windows installer builds are available for this release.
+- Manage Azure Linux VMs, public IPs, disks, storage, load balancers, and Linux Uniform Virtual Machine Scale Sets.
+- Start, restart, resize, and deallocate Azure VMs and scale-set instances directly from the app.
+- Deploy to an existing saved Azure VM, then roll a guided Static or Backend/PM2 app to an existing scale set one instance at a time.
+- Reuse an existing AWS EC2 source instance and Auto Scaling group for guarded AMI-based rollout.
+- AWS and Azure cost views retain the most recent result and clearly handle API throttling or delayed billing data.
+- Upload, inspect, edit, add, remove, and securely apply environment variables without including `.env` files in normal project uploads. Multi-line PEM/SSL certificate values such as `DATABASE_SSL_CA` are supported.
+- SSL setup supports optional `www` and additional comma-separated domains, automatic certificate renewal, and active Nginx configuration detection.
+- Windows installer and Linux AppImage builds are available for this release.
 
 See the release notes for package-specific changes and installation instructions.
 
@@ -48,7 +48,7 @@ See the release notes for package-specific changes and installation instructions
 - Browse and transfer files with integrated SFTP
 - Keep a terminal workspace available while reviewing Monitoring, Logs, or other modules
 
-### Provision AWS VPS instances
+### Provision AWS and Azure infrastructure
 
 - Connect your AWS IAM access key locally
 - Create and manage beginner-friendly Amazon EC2 VPS instances
@@ -58,6 +58,14 @@ See the release notes for package-specific changes and installation instructions
 - Show a disk-aware monthly estimate before and after infrastructure changes
 - Move from AWS provisioning to SSH, deploy, monitoring, and Nginx in one workflow
 
+Azure support includes:
+
+- Connect Azure credentials per Development, Staging, or Production environment
+- Create and manage Linux VMs, virtual networks, security rules, public IPs, storage, and managed disks
+- Create Standard public load balancers, traffic rules, backend pools, and TCP connection tests
+- Create and manage Linux Uniform Virtual Machine Scale Sets, including capacity and per-instance power controls
+- View month-to-date Azure cost by service, with cached results and rate-limit protection
+
 ### Deploy applications with confidence
 
 - Guided static-app and server-app deployment flows
@@ -65,6 +73,10 @@ See the release notes for package-specific changes and installation instructions
 - Validate PM2 and target-directory requirements before deployment where applicable
 - Track live deployment output and deployment history
 - Keep deployment actions connected to the selected server
+- Roll out supported guided deployments to an existing AWS Auto Scaling group or Azure Linux Uniform scale set
+- Edit protected multi-line environment values such as database SSL CA certificates
+
+> Cloud resources can incur charges. Deallocating Azure VMs and scale-set instances stops compute billing, but disks, public IPs, load balancers, and other retained resources may still be billable.
 
 ### Monitor server health
 
@@ -95,7 +107,7 @@ See the release notes for package-specific changes and installation instructions
 
 | If you use separate tools | With Chaty DevOps |
 | --- | --- |
-| AWS Console for EC2 | AWS provisioning and server setup inside Chaty DevOps |
+| AWS or Azure portal for cloud resources | AWS and Azure provisioning, resource management, and server setup inside Chaty DevOps |
 | SSH client for commands | Saved servers and multi-terminal workspaces |
 | FTP/SFTP client for files | Integrated remote file browsing and transfers |
 | Deployment scripts and terminal windows | Guided deployments, dry runs, and live deployment logs |
@@ -156,7 +168,7 @@ Any Linux server reachable through SSH, including:
 
 1. Download the package for your operating system from [Releases](https://github.com/chatyshop/chaty_devops/releases).
 2. Install the app and activate your license key.
-3. Add a server through SSH, or create an EC2 VPS using the AWS VPS Launcher.
+3. Add a server through SSH, or create/connect an AWS or Azure virtual machine.
 4. Use Deploy, Monitoring, Nginx, Logs, and API Test to manage the selected environment.
 
 ---
